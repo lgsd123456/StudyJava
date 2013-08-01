@@ -1,0 +1,42 @@
+58a59,60
+>     <property name="patch.dir" value="./src/patch"/>
+>     <property name="jdk50.dir" value="./src/jdk50"/>
+69c71
+< 
+---
+> 		
+77a80,81
+> 		<available classname="org.w3c.dom.TypeInfo" property="available.TypeInfo"/>
+> 		
+116c120
+<   <target name="prepare-src" depends="prepare">
+---
+>   <target name="prepare-src" depends="prepare, prepare-jdk5">
+126a131,152
+> 	
+>   <!-- =================================================================== -->
+>   <!-- Use sources for JDK 5.0                                             -->
+>   <!-- =================================================================== -->
+>   <target name="prepare-jdk5" if="available.TypeInfo">
+> 		<echo level="info" message="Using sources for JDK 5.0 - DOM Level 3"/>
+>     <copy todir="${build.src}">
+>       <fileset dir="${jdk50.dir}"/>
+>     </copy>
+>   </target>
+> 
+>   <!-- =================================================================== -->
+>   <!-- Patch sources for JDK 5.0                                           -->
+>   <!-- =================================================================== -->
+>   <target name="patch-for-jdk5" depends="init">
+> 		<echo level="info" message="Applying patches for JDK 5.0 - DOM Level 3"/>
+>     <mkdir dir="{jdk50.dir}/org/dom4j/dom"/>
+>     <copy todir="${jdk50.dir}/org/dom4j/dom">
+>       <fileset dir="${src.dir}"/>
+>     </copy>
+> 		<patch patchfile="${patch.dir}/jdk50.patch" dir="${jdk50.dir}/org/dom4j/dom"/>
+>   </target>
+127a154,155
+> 	
+> 	
+265a294
+>     <delete dir="{jdk50.dir}"/>

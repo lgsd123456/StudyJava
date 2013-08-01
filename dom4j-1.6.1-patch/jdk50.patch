@@ -1,0 +1,1002 @@
+Index: DOMAttribute.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMAttribute.java,v
+retrieving revision 1.14
+diff -u -r1.14 DOMAttribute.java
+--- DOMAttribute.java	29 Jan 2005 14:52:46 -0000	1.14
++++ DOMAttribute.java	2 Apr 2005 19:44:18 -0000
+@@ -14,7 +14,10 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.TypeInfo;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -179,6 +182,76 @@
+     public org.w3c.dom.Element getOwnerElement() {
+         return DOMNodeHelper.asDOMElement(getParent());
+     }
++
++    public TypeInfo getSchemaTypeInfo() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isId() {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node other) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String textContent) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node other) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String namespaceURI) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String namespaceURI) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String prefix) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String feature, String version) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String key, Object data, UserDataHandler handler) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String key) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMCDATA.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMCDATA.java,v
+retrieving revision 1.12
+diff -u -r1.12 DOMCDATA.java
+--- DOMCDATA.java	29 Jan 2005 14:52:46 -0000	1.12
++++ DOMCDATA.java	2 Apr 2005 19:44:20 -0000
+@@ -14,7 +14,10 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.Text;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -225,6 +228,81 @@
+     protected CDATA createCDATA(String text) {
+         return new DOMCDATA(text);
+     }
++
++    public boolean isElementContentWhitespace() {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String getWholeText() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Text replaceWholeText(String content) throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node other) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String textContent) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node other) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String namespaceURI) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String namespaceURI) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String prefix) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String feature, String version) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String key, Object data, UserDataHandler handler) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String key) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMComment.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMComment.java,v
+retrieving revision 1.12
+diff -u -r1.12 DOMComment.java
+--- DOMComment.java	29 Jan 2005 14:52:46 -0000	1.12
++++ DOMComment.java	2 Apr 2005 19:44:21 -0000
+@@ -13,7 +13,9 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -187,6 +189,66 @@
+             throws DOMException {
+         DOMNodeHelper.replaceData(this, offset, count, arg);
+     }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node other) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String textContent) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node other) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String namespaceURI) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String namespaceURI) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String prefix) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String feature, String version) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String key, Object data, UserDataHandler handler) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String key) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMDocument.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMDocument.java,v
+retrieving revision 1.17
+diff -u -r1.17 DOMDocument.java
+--- DOMDocument.java	29 Jan 2005 14:52:46 -0000	1.17
++++ DOMDocument.java	2 Apr 2005 19:44:23 -0000
+@@ -15,12 +15,15 @@
+ 
+ import org.w3c.dom.Attr;
+ import org.w3c.dom.CDATASection;
++import org.w3c.dom.DOMConfiguration;
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.EntityReference;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
+ import org.w3c.dom.ProcessingInstruction;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -301,6 +304,136 @@
+             return super.getDocumentFactory();
+         }
+     }
++
++    public String getInputEncoding() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public String getXmlEncoding() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean getXmlStandalone() {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public void setXmlStandalone(boolean arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public String getXmlVersion() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setXmlVersion(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean getStrictErrorChecking() {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public void setStrictErrorChecking(boolean arg0) {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public String getDocumentURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setDocumentURI(String arg0) {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public Node adoptNode(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public DOMConfiguration getDomConfig() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void normalizeDocument() {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public Node renameNode(Node arg0, String arg1, String arg2) throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String arg0, Object arg1, UserDataHandler arg2) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMDocumentFactory.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMDocumentFactory.java,v
+retrieving revision 1.20
+diff -u -r1.20 DOMDocumentFactory.java
+--- DOMDocumentFactory.java	29 Jan 2005 14:52:46 -0000	1.20
++++ DOMDocumentFactory.java	2 Apr 2005 19:44:24 -0000
+@@ -174,6 +174,11 @@
+                     docType.getPublicId(), docType.getSystemId());
+         }
+     }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ 
+Index: DOMDocumentType.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMDocumentType.java,v
+retrieving revision 1.11
+diff -u -r1.11 DOMDocumentType.java
+--- DOMDocumentType.java	29 Jan 2005 14:52:46 -0000	1.11
++++ DOMDocumentType.java	2 Apr 2005 19:44:24 -0000
+@@ -12,7 +12,9 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -177,6 +179,66 @@
+     public String getInternalSubset() {
+         return getElementName();
+     }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String arg0, Object arg1, UserDataHandler arg2) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMElement.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMElement.java,v
+retrieving revision 1.23
+diff -u -r1.23 DOMElement.java
+--- DOMElement.java	29 Jan 2005 14:52:46 -0000	1.23
++++ DOMElement.java	2 Apr 2005 19:44:26 -0000
+@@ -16,11 +16,14 @@
+ import org.dom4j.QName;
+ import org.dom4j.tree.DefaultElement;
+ 
++import org.w3c.dom.Attr;
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
+ import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.TypeInfo;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -389,6 +392,86 @@
+ 
+         return getDocumentFactory().createQName(localName, prefix, namespace);
+     }
++
++    public TypeInfo getSchemaTypeInfo() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setIdAttribute(String arg0, boolean arg1) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public void setIdAttributeNS(String arg0, String arg1, boolean arg2) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public void setIdAttributeNode(Attr arg0, boolean arg1) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String arg0, Object arg1, UserDataHandler arg2) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMEntityReference.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMEntityReference.java,v
+retrieving revision 1.12
+diff -u -r1.12 DOMEntityReference.java
+--- DOMEntityReference.java	29 Jan 2005 14:52:46 -0000	1.12
++++ DOMEntityReference.java	2 Apr 2005 19:44:27 -0000
+@@ -13,7 +13,9 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -166,6 +168,66 @@
+     public boolean hasAttributes() {
+         return DOMNodeHelper.hasAttributes(this);
+     }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String arg0, Object arg1, UserDataHandler arg2) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMNamespace.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMNamespace.java,v
+retrieving revision 1.10
+diff -u -r1.10 DOMNamespace.java
+--- DOMNamespace.java	29 Jan 2005 14:52:46 -0000	1.10
++++ DOMNamespace.java	2 Apr 2005 19:44:27 -0000
+@@ -13,7 +13,9 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -140,6 +142,66 @@
+     public boolean hasAttributes() {
+         return DOMNodeHelper.hasAttributes(this);
+     }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String arg0, Object arg1, UserDataHandler arg2) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*
+Index: DOMProcessingInstruction.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMProcessingInstruction.java,v
+retrieving revision 1.12
+diff -u -r1.12 DOMProcessingInstruction.java
+--- DOMProcessingInstruction.java	29 Jan 2005 14:52:46 -0000	1.12
++++ DOMProcessingInstruction.java	2 Apr 2005 19:44:28 -0000
+@@ -15,7 +15,9 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -177,6 +179,66 @@
+         }
+     }
+ 
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String arg0, Object arg1, UserDataHandler arg2) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
+     // Implementation methods
+     // -------------------------------------------------------------------------
+ }
+Index: DOMText.java
+===================================================================
+RCS file: /cvsroot/dom4j/dom4j/src/java/org/dom4j/dom/DOMText.java,v
+retrieving revision 1.12
+diff -u -r1.12 DOMText.java
+--- DOMText.java	29 Jan 2005 14:52:46 -0000	1.12
++++ DOMText.java	2 Apr 2005 19:44:28 -0000
+@@ -14,7 +14,9 @@
+ import org.w3c.dom.DOMException;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.NamedNodeMap;
++import org.w3c.dom.Node;
+ import org.w3c.dom.NodeList;
++import org.w3c.dom.UserDataHandler;
+ 
+ /**
+  * <p>
+@@ -224,6 +226,81 @@
+     protected Text createText(String text) {
+         return new DOMText(text);
+     }
++
++    public boolean isElementContentWhitespace() {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String getWholeText() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public org.w3c.dom.Text replaceWholeText(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public String getBaseURI() {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public short compareDocumentPosition(Node arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      return 0;
++    }
++
++    public String getTextContent() throws DOMException {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public void setTextContent(String arg0) throws DOMException {
++      // TODO Auto-generated method stub
++      
++    }
++
++    public boolean isSameNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupPrefix(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isDefaultNamespace(String arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public String lookupNamespaceURI(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public boolean isEqualNode(Node arg0) {
++      // TODO Auto-generated method stub
++      return false;
++    }
++
++    public Object getFeature(String arg0, String arg1) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object setUserData(String arg0, Object arg1, UserDataHandler arg2) {
++      // TODO Auto-generated method stub
++      return null;
++    }
++
++    public Object getUserData(String arg0) {
++      // TODO Auto-generated method stub
++      return null;
++    }
+ }
+ 
+ /*

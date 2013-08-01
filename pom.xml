@@ -6,4 +6,18 @@
     <artifactId>StudyJava</artifactId>
     <version>0.01-SNAPSHOT</version>
     <name>Core Java Study</name>
+    
+    <dependencies>
+    	<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.0-FCS</version>
+			<classifier>full</classifier>
+		</dependency>
+	</dependencies>
 </project>
