@@ -8,12 +8,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import javax.swing.JFrame;
+
 
 public class JDBCStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		runTest();
+		//runTest();
+		QueryDB frame = new QueryDB();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 	
 	public static void runTest(){
