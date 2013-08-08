@@ -15,10 +15,10 @@ public class JDBCStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//runTest();
-		QueryDB frame = new QueryDB();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
+		runTest();
+//		QueryDB frame = new QueryDB();
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setVisible(true);
 	}
 	
 	public static void runTest(){
@@ -26,6 +26,10 @@ public class JDBCStudy {
 			Connection conn = getConnection();
 			DatabaseMetaData metaData = conn.getMetaData();
 			int maxState = metaData.getMaxStatements();
+			int majorVersion = metaData.getJDBCMajorVersion();
+			int minorVersion = metaData.getJDBCMinorVersion();
+			int maxConnection = metaData.getMaxConnections();
+			boolean batchSupport = metaData.supportsBatchUpdates();
 			try{
 				Statement stat = conn.createStatement();
 				stat.executeUpdate("create table Greetings(Message char(20))");
