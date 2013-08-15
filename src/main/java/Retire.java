@@ -33,8 +33,8 @@ public class Retire extends JApplet {
 		
 		JLabel languageLabel = new JLabel(bundle.getString("language"));
 		
-		for(Locale ll : locales)
-			languageBox.addItem(ll);
+//		for(Locale ll : locales)
+//			languageBox.addItem(ll);
 		languageBox.setSelectedItem(Locale.CHINA);
 		//languageBox.setSize(100, 0);
 //		languageBox.setRenderer(languageBox);
@@ -57,8 +57,8 @@ public class Retire extends JApplet {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//setCurrentLocale((Locale)languageBox.getSelectedItem());
-				//languageBox.setLocale((Locale)languageBox.getSelectedItem());
-				languageBox.setNew();
+				languageBox.setLocale((Locale)languageBox.getSelectedItem());
+				
 				validate();
 			}
 		});
@@ -128,7 +128,7 @@ public class Retire extends JApplet {
 	private JTextArea textArea;
 	private Locale[] locales = {Locale.US, Locale.GERMANY, Locale.CHINA};
 	//private ListCellItem languageBox = new ListCellItem(locales);
-	private ListCell2 languageBox = new ListCell2(locales);
+	private JComboBox languageBox = new ListCell2(locales);
 }
 
 class ListCell2 extends JComboBox{
@@ -139,42 +139,43 @@ class ListCell2 extends JComboBox{
 		setNewModel();
 	}
 	
-	public void setNew(){
-		setNewModel();
-	}
+	public void setLocale(Locale newValue)
+	   {
+	      super.setLocale(newValue);
+	      setNewModel();
+	   }
 	
 	private void setNewModel(){
 		Object selected = getSelectedItem();
-		setModel(new ComboBoxModel() {
+		
+		setModel(new ComboBoxModel()
+        {
+           public Object getElementAt(int i)
+           {
+              return locales[i];
+           }
 
-			@Override
-			public int getSize() {
-				// TODO Auto-generated method stub
-				return locales.length;
-			}
+           public int getSize()
+           {
+              return locales.length;
+           }
 
-			@Override
-			public Object getElementAt(int index) {
-				// TODO Auto-generated method stub
-				return locales[index];
-			}
+           public void addListDataListener(ListDataListener l)
+           {
+           }
 
-			@Override
-			public void addListDataListener(ListDataListener l) {
-				// TODO Auto-generated method stub
-				
-			}
+           public void removeListDataListener(ListDataListener l)
+           {
+           }
 
-			@Override
-			public void removeListDataListener(ListDataListener l) {
-				// TODO Auto-generated method stub
-				
-			}
+           public Object getSelectedItem()
+           {
+        	   return selected >= 0 ? locales[selected] : null;
+           }
 
-			@Override
-			public void setSelectedItem(Object anItem) {
-				// TODO Auto-generated method stub
-				if(anItem == null) selected = -1;
+           public void setSelectedItem(Object anItem)
+           {
+        	   if(anItem == null) selected = -1;
 				else{
 					Locale tmp = (Locale)anItem;
 					for(int i = 0; i < locales.length; i++){
@@ -182,15 +183,10 @@ class ListCell2 extends JComboBox{
 							selected = i;
 					}
 				}
-			}
+           }
 
-			@Override
-			public Object getSelectedItem() {
-				// TODO Auto-generated method stub
-				return selected >= 0 ? locales[selected] : null;
-			}
-			private int selected = -1;
-		});
+           private int selected;
+        });
 		setSelectedItem(selected);
 	}
 	
