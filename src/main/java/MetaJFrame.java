@@ -39,7 +39,7 @@ public class MetaJFrame extends JFrame {
 		setTitle("Meta Test");
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		
-		tableName = new JComboBox<String>();
+		tableName = new JComboBox();
 		
 		add(tableName, BorderLayout.NORTH);
 		tableName.addActionListener(new ActionListener() {
@@ -143,7 +143,7 @@ public class MetaJFrame extends JFrame {
 	}
 	
 	private Connection connection;
-	private JComboBox<String> tableName;
+	private JComboBox tableName;
 	private JButton Previous;
 	private JButton Next;
 	private JButton Delete;

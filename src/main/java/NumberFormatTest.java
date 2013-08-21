@@ -101,7 +101,7 @@ class displayPanel extends JPanel{
 		//textField.setText("12345.67");
 		
 		JLabel label = new JLabel("Locale:");
-		localeBox = new JComboBox<String>();
+		localeBox = new JComboBox();
 		localeBox.addActionListener(new ActionListener() {
 			
 			@Override
@@ -145,7 +145,7 @@ class displayPanel extends JPanel{
 		textField.setText(numberFormat.format(data));
 	}
 	
-	private JComboBox<String> localeBox;
+	private JComboBox localeBox;
 	private JRadioButton numberButton;
 	private JRadioButton currencyButton;
 	private JRadioButton percentButton;
