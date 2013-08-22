@@ -90,7 +90,7 @@ class CollationFrame extends JFrame{
 		
 			
 		JLabel localLabel = new JLabel("Locale");
-		localBox = new JComboBox<String>();
+		localBox = new JComboBox();
 		
 		for(Locale ll : locales)
 			localBox.addItem(ll.getDisplayName());
@@ -195,7 +195,7 @@ class CollationFrame extends JFrame{
 	
 	private Collator collator;
 	private JTextArea textArea;
-	private JComboBox<String> localBox;
+	private JComboBox localBox;
 	private EnumCombo strengBox = new EnumCombo(Collator.class, new String[]{"PRIMARY","SECONDARY","TERTIARY","IDENTICAL"});
 	private EnumCombo decomBox = new EnumCombo(Collator.class, new String[]{"NO DECOMPOSITION","CANONICAL DECOMPOSITION","FULL DECOMPOSITION"});
 	private JButton addButton;

@@ -128,7 +128,7 @@ public class Retire extends JApplet {
 	private JTextArea textArea;
 	private Locale[] locales = {Locale.US, Locale.GERMANY, Locale.CHINA};
 	//private ListCellItem languageBox = new ListCellItem(locales);
-	private ListCell2 languageBox = new ListCell2(locales);
+	private JComboBox languageBox = new ListCell2(locales);
 }
 
 class ListCell2 extends JComboBox{

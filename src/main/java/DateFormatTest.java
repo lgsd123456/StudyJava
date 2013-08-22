@@ -64,7 +64,7 @@ class DateFormatPanel extends JPanel{
 		locale = (Locale[])DateFormat.getAvailableLocales().clone();
 		
 		JLabel labelLocal = new JLabel("Locale");
-		localBox = new JComboBox<String>();
+		localBox = new JComboBox();
 		localBox.addActionListener(new ActionListener() {
 			
 			@Override
@@ -74,9 +74,9 @@ class DateFormatPanel extends JPanel{
 			}
 		});
 		JLabel labelDateStyle = new JLabel("Date style");
-		styleDateBox = new JComboBox<String>();
+		styleDateBox = new JComboBox();
 		JLabel labelTimeStyle = new JLabel("Time style");
-		styleTimeBox = new JComboBox<String>();
+		styleTimeBox = new JComboBox();
 		JLabel labelDate = new JLabel("Date");
 		dateTextField = new JTextField(30);
 		dateButton = new JButton("Parse date");
@@ -201,9 +201,9 @@ class DateFormatPanel extends JPanel{
 	}
 	
 	
-	private JComboBox<String> localBox;
-	private JComboBox<String> styleDateBox;
-	private JComboBox<String> styleTimeBox;
+	private JComboBox localBox;
+	private JComboBox styleDateBox;
+	private JComboBox styleTimeBox;
 	private JTextField dateTextField;
 	private JTextField timeTextField;
 	private JCheckBox lenientBox;
