@@ -78,7 +78,7 @@ class CollationFrame extends JFrame{
 		JPanel contentPanel = new JPanel();
 		contentPanel.setLayout(new GridBagLayout());
 		locales = (Locale[])Collator.getAvailableLocales().clone();
-		colList = new ArrayList<>();
+		colList = new ArrayList();
 		
 		Arrays.sort(locales, new Comparator<Locale>() {
 			private Collator collator = Collator.getInstance(Locale.getDefault());

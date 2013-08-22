@@ -230,7 +230,7 @@ class MiddleTablePanel extends JPanel{
 		table = new JTable(model);
 		add(new JScrollPane(table), BorderLayout.CENTER);
 		
-		removedColumns = new ArrayList<>();
+		removedColumns = new ArrayList();
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);

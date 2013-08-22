@@ -111,7 +111,7 @@ class displayPanel extends JPanel{
 			}
 		});
 		Locale[] allLocales = NumberFormat.getAvailableLocales();
-		map = new HashMap<>();
+		map = new HashMap();
 		for(Locale l1 : allLocales){
 			String disString = l1.getDisplayName();
 			map.put(disString, l1);

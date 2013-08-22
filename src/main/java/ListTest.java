@@ -112,7 +112,7 @@ class MiddleListPanel extends JPanel{
 		//String[] words = {"quick", "brown", "hungry", "wild", "silent", "huge", "private", "abstract", "static", "final"};
 		display = new JLabel();
 		
-		JList worList = new JList<>(new DataModel(3));
+		JList worList = new JList(new DataModel(3));
 		worList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		worList.setPrototypeCellValue("www");
 		//worList.setVisibleRowCount(4);
@@ -183,7 +183,7 @@ class SimpleListPanel extends JPanel{
 		String[] words = {"quick", "brown", "hungry", "wild", "silent", "huge", "private", "abstract", "static", "final"};
 		display = new JLabel();
 		
-		JList worList = new JList<>(words);
+		JList worList = new JList(words);
 		worList.setVisibleRowCount(4);
 		
 		worList.addListSelectionListener(new ListSelectionListener() {

@@ -113,7 +113,7 @@ public class TreeTest extends JFrame{
 	
 	public void addClass(){
 		String text = textField.getText().trim();
-		ArrayDeque<Class> classList = new ArrayDeque<>();
+		ArrayDeque<Class> classList = new ArrayDeque();
 		try {
 			Class class1 = Class.forName(text);
 			DefaultMutableTreeNode node = findUserObject(class1);
@@ -156,6 +156,7 @@ public class TreeTest extends JFrame{
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("World");
 		DefaultMutableTreeNode country = new DefaultMutableTreeNode("China");
 		root.add(country);
+		
 		
 		DefaultMutableTreeNode state = new DefaultMutableTreeNode("GuangDong");
 		country.add(state);
