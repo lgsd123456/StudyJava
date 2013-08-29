@@ -1,4 +1,7 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -8,12 +11,56 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.StreamPrintService;
+import javax.print.StreamPrintServiceFactory;
+
 
 public class URLStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
+			//study PrintServiceTest
+			DocFlavor flavor = DocFlavor.SERVICE_FORMATTED.PRINTABLE;
+			String mimeType = "application/postscript";
+			StreamPrintServiceFactory[] factories = StreamPrintServiceFactory.lookupStreamPrintServiceFactories(flavor, mimeType);
+			OutputStream out = new FileOutputStream("ff");
+			StreamPrintService service = factories[0].getPrintService(out);
+			
+			DocPrintJob job = service.createPrintJob();
+			FileInputStream in = new FileInputStream("face.gif");
+			DocFlavor flavor1 = DocFlavor.INPUT_STREAM.GIF;
+			Doc doc = new SimpleDoc(in, flavor1, null);
+			job.print(doc, null);
+			
+//			DocFlavor flavor = DocFlavor.INPUT_STREAM.TEXT_PLAIN_HOST;
+//			PrintService[] services = PrintServiceLookup.lookupPrintServices(flavor, null);
+//			if(services.length == 0){
+//				System.out.println("No printer for flavor " + flavor);
+//				System.exit(0);
+//			}
+//			
+//			FileInputStream in = new FileInputStream("C:\\Data\123.txt");
+//			Doc doc = new SimpleDoc(in, flavor, null);
+//			PrintService subService = null;
+//			for(PrintService service : services){
+//				if(service.getName().contains("PDF"))
+//					subService = service;
+//			}
+//			DocPrintJob job = subService.createPrintJob();
+//			job.print(doc, null);
+			
+//			String message = "11111222222333333344444555555";
+//			String sub1 = message.substring(1,2);
+//			String sub2 = message.substring(2,3);
+//			String sub3 = message.substring(3);
+			
 //			URI uri = new URI("http://java.sun.com/j2se/1.3/docs/guide/collections/designfaq.html#28");
 //			String scheme = uri.getScheme();
 //			String specialPart = uri.getSchemeSpecificPart();
@@ -31,7 +78,7 @@ public class URLStudy {
 //			//URI uri5 = uri2.relativize(uri);
 //			
 //			System.out.println();
-			URL url = new URL("http://192.168.7.248:8080/nexus-webapp/service/local/lucene/search?_dc=1375429644266&q=dom4j&collapseresults=true");
+			//URL url = new URL("http://192.168.7.248:8080/nexus-webapp/service/local/lucene/search?_dc=1375429644266&q=dom4j&collapseresults=true");
 			
 //			URLConnection connection  = url.openConnection();
 //			Map<String, List<String>> mapRequests = connection.getRequestProperties();
@@ -55,17 +102,18 @@ public class URLStudy {
 //				System.out.println(in.nextLine());
 //			if(in.hasNextLine()) System.out.println("...");
 			
-			URLConnection connection = url.openConnection();
+			//URLConnection connection = url.openConnection();
 			//connection.setDoOutput(true);
-			connection.connect();
+			//connection.connect();
 			//PrintWriter out = new PrintWriter(connection.getOutputStream());
 			//out.print(b);
-			Scanner in = new Scanner(connection.getInputStream());
-			for(int n = 1; in.hasNextLine() && n <= 100; n++)
-				System.out.println(in.nextLine());
-			if(in.hasNextLine()) System.out.println("...");
-		} catch (IOException e) {
+//			Scanner in = new Scanner(connection.getInputStream());
+//			for(int n = 1; in.hasNextLine() && n <= 100; n++)
+//				System.out.println(in.nextLine());
+//			if(in.hasNextLine()) System.out.println("...");
+		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 	}
