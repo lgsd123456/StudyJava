@@ -1,3 +1,6 @@
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,18 +29,24 @@ public class URLStudy {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			//study PrintServiceTest
-			DocFlavor flavor = DocFlavor.SERVICE_FORMATTED.PRINTABLE;
-			String mimeType = "application/postscript";
-			StreamPrintServiceFactory[] factories = StreamPrintServiceFactory.lookupStreamPrintServiceFactories(flavor, mimeType);
-			OutputStream out = new FileOutputStream("ff");
-			StreamPrintService service = factories[0].getPrintService(out);
+			//study clipboard
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+			DataFlavor[] flavors = clipboard.getAvailableDataFlavors();
+			for(DataFlavor flavor : flavors)
+				System.out.println(flavor);
 			
-			DocPrintJob job = service.createPrintJob();
-			FileInputStream in = new FileInputStream("face.gif");
-			DocFlavor flavor1 = DocFlavor.INPUT_STREAM.GIF;
-			Doc doc = new SimpleDoc(in, flavor1, null);
-			job.print(doc, null);
+			//study PrintServiceTest
+//			DocFlavor flavor = DocFlavor.SERVICE_FORMATTED.PRINTABLE;
+//			String mimeType = "application/postscript";
+//			StreamPrintServiceFactory[] factories = StreamPrintServiceFactory.lookupStreamPrintServiceFactories(flavor, mimeType);
+//			OutputStream out = new FileOutputStream("ff");
+//			StreamPrintService service = factories[0].getPrintService(out);
+//			
+//			DocPrintJob job = service.createPrintJob();
+//			FileInputStream in = new FileInputStream("face.gif");
+//			DocFlavor flavor1 = DocFlavor.INPUT_STREAM.GIF;
+//			Doc doc = new SimpleDoc(in, flavor1, null);
+//			job.print(doc, null);
 			
 //			DocFlavor flavor = DocFlavor.INPUT_STREAM.TEXT_PLAIN_HOST;
 //			PrintService[] services = PrintServiceLookup.lookupPrintServices(flavor, null);
