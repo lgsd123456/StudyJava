@@ -24,14 +24,16 @@ public class SplitPaneTest extends JFrame {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		SplashScreenTest.init1();
 		EventQueue.invokeLater(new Runnable() {
 			
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				JFrame frame = new SplitPaneTest();
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
+//				JFrame frame = new SplitPaneTest();
+//				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//				frame.setVisible(true);
+				SplashScreenTest.init2();
 			}
 		});
 	}
