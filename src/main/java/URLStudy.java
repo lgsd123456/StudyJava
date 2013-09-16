@@ -1,6 +1,9 @@
+import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,6 +25,12 @@ import javax.print.PrintServiceLookup;
 import javax.print.SimpleDoc;
 import javax.print.StreamPrintService;
 import javax.print.StreamPrintServiceFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 
 public class URLStudy {
@@ -30,11 +39,50 @@ public class URLStudy {
 		// TODO Auto-generated method stub
 		try {
 			//study clipboard
-			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-			DataFlavor[] flavors = clipboard.getAvailableDataFlavors();
-			for(DataFlavor flavor : flavors)
-				System.out.println(flavor);
+//			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+//			DataFlavor[] flavors = clipboard.getAvailableDataFlavors();
+//			for(DataFlavor flavor : flavors)
+//				System.out.println(flavor);
 			
+			JFrame frame = new JFrame();
+			frame.setLayout(new FlowLayout());
+			final JLabel label = new JLabel("10");
+			final JTextField textField = new JTextField(20);
+			textField.setText("10");
+			textField.getDocument().addDocumentListener(new DocumentListener() {
+				
+				@Override
+				public void removeUpdate(DocumentEvent arg0) {
+					// TODO Auto-generated method stub
+					textField.firePropertyChange("text",10, Long.parseLong(textField.getText()));
+				}
+				
+				@Override
+				public void insertUpdate(DocumentEvent arg0) {
+					// TODO Auto-generated method stub
+					textField.firePropertyChange("text",10, Long.parseLong(textField.getText()));
+				}
+				
+				@Override
+				public void changedUpdate(DocumentEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			textField.addPropertyChangeListener(new PropertyChangeListener() {
+				
+				@Override
+				public void propertyChange(PropertyChangeEvent arg0) {
+					// TODO Auto-generated method stub
+					if(arg0.getPropertyName().equals("text"))
+						label.setText(arg0.getNewValue().toString());
+				}
+			});
+			frame.add(label);
+			frame.add(textField);
+			frame.pack();
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
 			//study PrintServiceTest
 //			DocFlavor flavor = DocFlavor.SERVICE_FORMATTED.PRINTABLE;
 //			String mimeType = "application/postscript";
