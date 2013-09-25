@@ -32,7 +32,7 @@ public class WarehouseServer {
 		
 		System.out.println("Binding server implementation to registry...");
 		Context namingContext = new InitialContext();
-		namingContext.bind("rmi:central_warehouse", centralWarehouse);
+		namingContext.bind("rmi://192.168.6.19:1099/central_warehouse", centralWarehouse);
 		System.out.println("Waiting for invocations from clients...");
 		
 		
